@@ -1,189 +1,190 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Document</title>
-        <link rel="stylesheet" href="style.css">"
-    </head>
-    <body>
-        
-        <header class="main-header">
-            <img src="imagenes/logo.jpeg" alt="LL Clothestore" class="logo">
-        </header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>LL Clothestore</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-        <main class="products">
+<body>
 
-                 <div class="product-card"
-            data-title="Remera Jordan Flight MVP roja"
-            data-price="$17.000"
-            data-sizes="S, M, L, XL"
-            data-stock="Disponible"
-            data-description="Remera Jordan Flight MVP roja de alta calidad."
-            data-img="imagenes/jordan roja.jpeg">
+<header class="main-header">
+  <span class="header-text left">PREMIUM</span> 
+  <div class="header-line line-red"></div>
 
-            <div class="img-container">
-            <img src="imagenes/jordan roja.jpeg" alt="Remera">
-            <div class="overlay">
-                <span>Ver detalles</span>
-            <h3>Remera Jordan Flight MVP roja</h3>
-            <p>$17.000</p>
-        </div> 
-       </div>         
-      </div>          
-      
-      <div class="product-card"
-            data-title="Remera Jordan Flight MVP negra"
-            data-price="$17.000"
-            data-sizes="S, M, L, XL"
-            data-stock="Disponible"
-            data-description="Remera Jordan Flight MVP negra de alta calidad."
-            data-img="imagenes/jordan negra.jpeg">
-            
-                <div class="img-container">
-                    <img src="imagenes/jordan negra.jpeg" alt="Remera">
-                    <div class="overlay">
-                        <span>Ver detalles</span>
-                    </div>
-                    <h3>Remera Jordan Flight MVP negra</h3>
-                    <p>$17.000</p>
-                </div>
-               </div>
-              </div>
+  <img src="imagenes/logo.jpeg" alt="LL Clothestore" class="logo">
 
-                <div class="product-card"
-            data-title="Remera Air Jordan negra"
-            data-price="$17.000"
-            data-sizes="S, M, L, XL"
-            data-stock="Disponible"
-            data-description="Remera Air Jordan negra de alta calidad."
-            data-img="imagenes/air jordan negra.jpeg">
+  <div class="header-line line-blue"></div>
+  <span class="header-text right">STREETWEAR</span>
 
-                <div class="img-container">
-                    <img src="imagenes/air jordan negra.jpeg" alt="Remera">
-                    <div class="overlay">
-                        <span>Ver detalles</span>
-                    </div>
-                    <h3>Remera Air Jordan negra</h3>
-                    <p>$17.000</p>
-                </div>
-               </div>
-              </div>
+</header>
 
-                <div class="product-card"
-            data-title="Remera Air Jordan Azul Oscuro"
-            data-price="$17.000"
-            data-sizes="S, M, L, XL"
-            data-stock="Disponible"
-            data-description="Remera Air Jordan Azul Oscuro de alta calidad."
-            data-img="imagenes/air jordan azul oscura.jpeg">
+<div class="category-menu">
+  <button class="menu-toggle" aria-label="Abrir categorías">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-                <div class="img-container">
-                    <img src="imagenes/air jordan azul oscura.jpeg" alt="Remera">
-                    <div class="overlay">
-                        <span>Ver detalles</span>
-                    </div>
-                    <h3>Remera Air Jordan Azul Oscuro</h3>
-                    <p>$17.000</p>
-                </div>
-               </div>
-              </div>   
+  <div class="menu-dropdown">
+    <button class="filter-btn" data-filter="all">Todo</button>
+    <button class="filter-btn" data-filter="remera">Remeras</button>
+    <button class="filter-btn" data-filter="bermuda">Bermudas</button>
+    <button class="filter-btn" data-filter="drop">Próximamente</button>
+  </div>
+</div>
 
-                    <div class="product-card"
-            data-title="Remera Air Jordan Roja"        
-            data-price="$17.000"
-            data-sizes="S, M, L, XL"
-            data-stock="Disponible"
-            data-description="Remera Air Jordan Roja de alta calidad."
-            data-img="imagenes/jordan roja logo negro.jpeg">
+<main class="products">
 
-                    <div class="img-container">
-                        <img src="imagenes/jordan roja logo negro.jpeg" alt="Remera">
-                        <div class="overlay">
-                            <span>Ver detalles</span>
-                        </div>
-                        <h3>Remera Air Jordan Roja</h3>
-                        <p>$17.000</p>
-                    </div>
-                   </div>
-                  </div>
+  <!-- PRODUCT CARD -->
+  <div class="product-card" data-category="remeras"
+    data-title="Remera Jordan Flight MVP roja"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Jordan Flight MVP roja de alta calidad."
+    data-img="imagenes/jordan roja.jpeg">
 
-                     <div class="product-card"
-            data-title="Remera Jordan Jumpman Roja"        
-            data-price="$17.000"
-            data-sizes="S, M, L, XL"
-            data-stock="Disponible"
-            data-description="Remera Jordan Jumpman Roja de alta calidad."
-            data-img="imagenes/jordan roja logo blanco.jpeg">
+    <div class="img-container">
+      <img src="imagenes/jordan roja.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Jordan Flight MVP roja</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
 
-                    <div class="img-container">
-                        <img src="imagenes/jordan roja logo blanco.jpeg" alt="Remera">
-                        <div class="overlay">
-                            <span>Ver detalles</span>
-                        </div>
-                        <h3>Remera Jordan Jumpman Roja</h3>
-                        <p>$17.000</p>
-                    </div>
-                   </div>
-                  </div> 
+  <div class="product-card" data-category="remeras"
+    data-title="Remera Jordan Flight MVP negra"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Jordan Flight MVP negra de alta calidad."
+    data-img="imagenes/jordan negra.jpeg">
 
-                    <div class="product-card"
-            data-title="Remera Jordan Jumpman Negra"        
-            data-price="$17.000"
-            data-sizes="S, M, L, XL"
-            data-stock="Disponible"
-            data-description="Remera Jordan Jumpman Negra de alta calidad."
-            data-img="imagenes/jordan negra logo rojo.jpeg">
-            
-                    <div class="img-container">
-                        <img src="imagenes/jordan negra logo rojo.jpeg" alt="Remera">
-                        <div class="overlay">
-                            <span>Ver detalles</span>
-                        </div>
-                        <h3>Remera Jordan Jumpman Negra</h3>
-                        <p>$17.000</p>
-                    </div>
-                   </div>
-                  </div> 
+    <div class="img-container">
+      <img src="imagenes/jordan negra.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Jordan Flight MVP negra</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
 
-                    <div class="product-card"
-            data-title="Remera Jordan Holiday Negra"        
-            data-price="$17.000"
-            data-sizes="S, M, L, XL"
-            data-stock="Disponible"
-            data-description="Remera Jordan Holiday Negra de alta calidad."
-            data-img="imagenes/jordan negra letra gris.jpeg">
-                    
-                    <div class="img-container">
-                        <img src="imagenes/jordan negra letra gris.jpeg" alt="Remera">
-                        <div class="overlay">
-                            <span>Ver detalles</span>
-                        </div>
-                        <h3>Remera Jordan Holiday Negra</h3>
-                        <p>$17.000</p>
-                    </div>
-                   </div> 
-                  </div>
+  <div class="product-card" data-category="remeras"
+    data-title="Remera Air Jordan negra"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Air Jordan negra de alta calidad."
+    data-img="imagenes/air jordan negra.jpeg">
 
-                    <div class="product-card"
-            data-title="Remera Jordan Holiday Roja"         
-            data-price="$17.000"
-            data-sizes="S, M, L, XL"
-            data-stock="Disponible"
-            data-description="Remera Jordan Holiday Roja de alta calidad."
-            data-img="imagenes/jordan roja letra gris.jpeg">
+    <div class="img-container">
+      <img src="imagenes/air jordan negra.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Air Jordan negra</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
 
-                    <div class="img-container">
-                        <img src="imagenes/jordan roja letra gris.jpeg" alt="Remera">
-                        <div class="overlay">
-                            <span>Ver detalles</span>
-                        </div>
-                        <h3>Remera Jordan Holiday Roja</h3>
-                        <p>$17.000</p>
-                    </div>
-                   </div>
-                  </div>
+  <div class="product-card" data-category="remeras"
+    data-title="Remera Air Jordan Azul Oscuro"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Air Jordan Azul Oscuro de alta calidad."
+    data-img="imagenes/air jordan azul oscura.jpeg">
 
-                    <div class="product-card"
+    <div class="img-container">
+      <img src="imagenes/air jordan azul oscura.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Air Jordan Azul Oscuro</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+
+  <div class="product-card" data-category="remeras"
+    data-title="Remera Air Jordan Roja"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Air Jordan Roja de alta calidad."
+    data-img="imagenes/jordan roja logo negro.jpeg">
+
+    <div class="img-container">
+      <img src="imagenes/jordan roja logo negro.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Air Jordan Roja</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+
+  <div class="product-card" data-category="remeras"
+    data-title="Remera Jordan Jumpman Roja"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Jordan Jumpman Roja de alta calidad."
+    data-img="imagenes/jordan roja logo blanco.jpeg">
+
+    <div class="img-container">
+      <img src="imagenes/jordan roja logo blanco.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Jordan Jumpman Roja</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+
+  <div class="product-card" data-category="remeras"
+    data-title="Remera Jordan Jumpman Negra"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Jordan Jumpman Negra de alta calidad."
+    data-img="imagenes/jordan negra logo rojo.jpeg">
+
+    <div class="img-container">
+      <img src="imagenes/jordan negra logo rojo.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Jordan Jumpman Negra</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+
+  <div class="product-card" data-category="remeras"
+    data-title="Remera Jordan Holiday Negra"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Jordan Holiday Negra de alta calidad."
+    data-img="imagenes/jordan negra letra gris.jpeg">
+
+    <div class="img-container">
+      <img src="imagenes/jordan negra letra gris.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Jordan Holiday Negra</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+
+  <div class="product-card" data-category="remeras"
+    data-title="Remera Jordan Holiday Roja"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Jordan Holiday Roja de alta calidad."
+    data-img="imagenes/jordan roja letra gris.jpeg">
+
+    <div class="img-container">
+      <img src="imagenes/jordan roja letra gris.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Jordan Holiday Roja</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+
+                    <div class="product-card" data-category="remeras"
             data-title="Remera Die$el Negra"         
             data-price="$17.000"
             data-sizes="S, M, L, XL"
@@ -200,9 +201,8 @@
                         <p>$17.000</p>
                     </div>
                    </div>
-                  </div> 
 
-                    <div class="product-card"
+                    <div class="product-card" data-category="remeras"
             data-title="Remera Die$el Roja"         
             data-price="$17.000"
             data-sizes="S, M, L, XL"
@@ -219,9 +219,8 @@
                         <p>$17.000</p>
                     </div>
                    </div>
-                  </div>
 
-                    <div class="product-card"
+                    <div class="product-card" data-category="remeras"
             data-title="Remera Diesel Denim Division Negra y Roja"         
             data-price="$17.000"    
             data-sizes="S, M, L, XL"
@@ -238,9 +237,8 @@
                         <p>$17.000</p>
                     </div>
                    </div>
-                  </div>
 
-                    <div class="product-card"
+                    <div class="product-card" data-category="remeras"
             data-title="Remera Diesel Denim Division Roja y Blanca"         
             data-price="$17.000"
             data-sizes="S, M, L, XL"
@@ -257,9 +255,8 @@
                         <p>$17.000</p>
                     </div>
                    </div>
-                  </div>
 
-                    <div class="product-card"
+                    <div class="product-card" data-category="remeras"
             data-title="Remera Diesel For Succesful Life Negra"         
             data-price="$17.000"
             data-sizes="S, M, L, XL"
@@ -276,9 +273,8 @@
                         <p>$17.000</p>
                     </div>
                    </div>
-                  </div>
 
-                     <div class="product-card"
+                     <div class="product-card" data-category="remeras"
             data-title="Remera Diesel For Succesful Life Roja"         
             data-price="$17.000"
             data-sizes="S, M, L, XL"
@@ -290,13 +286,13 @@
                         <img src="imagenes/diesel roja marco blanco.jpeg" alt="Remera">
                         <div class="overlay">
                             <span>Ver detalles</span>
+                           </div> 
                         <h3>Remera Diesel For Succesful Life Roja</h3>
-                        <p>$17.000</p>
-                    </div>
+                        <p>$17.000</p>                  
                    </div>
-                  </div>
-
-                    <div class="product-card"
+                 </div> 
+                 
+                    <div class="product-card" data-category="bermudas"
             data-title="Bermuda Azul Oscuro"         
             data-price="$12.000"
             data-sizes="S, M, L, XL"
@@ -305,17 +301,16 @@
             data-img="imagenes/bermuda azul oscurito.jpeg">
 
                         <div class="img-container">
-                        <img src="imagenes/bermuda azul oscurito.jpeg" alt="Remera">
+                        <img src="imagenes/bermuda azul oscurito.jpeg" alt="Bermuda">
                         <div class="overlay">
                             <span>Ver detalles</span>
-                        </div>
+                           </div>
                         <h3>Bermuda Azul Oscuro</h3>
                         <p>$12.000</p>
                     </div>
                    </div>
-                  </div>
-
-                        <div class="product-card"
+                 
+                        <div class="product-card" data-category="bermudas"
             data-title="Bermuda de Jean"         
             data-price="$12.000"    
             data-sizes="S, M, L, XL"
@@ -323,17 +318,17 @@
             data-description="Bermuda de Jean de alta calidad."
             data-img="imagenes/bermuda de jean.jpeg">
 
-                    
-                        <img src="imagenes/bermuda de jean.jpeg" alt="Remera">
-                         <div class="overlay">
+                    <div class="img-container">
+                        <img src="imagenes/bermuda de jean.jpeg" alt="Bermuda">
+                         <div class="overlay">
                             <span>Ver detalles</span>
+                           </div> 
                         <h3>Bermuda de Jean</h3>
                         <p>$12.000</p>
                     </div>
                    </div>
-                  </div>
 
-                    <div class="product-card"
+                    <div class="product-card" data-category="bermudas"
             data-title="Bermuda Gris"         
             data-price="$12.000"
             data-sizes="S, M, L, XL"
@@ -341,24 +336,36 @@
             data-description="Bermuda Gris de alta calidad."
             data-img="imagenes/bermuda gris.jpeg">
 
-                        <img src="imagenes/bermuda gris.jpeg" alt="Remera">
+
+                    <div class="img-container">
+                        <img src="imagenes/bermuda gris.jpeg" alt="Bermuda">
                         <div class="overlay">
                             <span>Ver detalles</span>
+                            </div>
                         <h3>Bermuda Gris</h3>
                         <p>$12.000</p>
                     </div>
-                   </div>
-                  </div>   
+                   </div>    
 
-                  <div class="product-card drop card no">
-                    <span class="drop-badge">🔥</span>
-                    <div class="drop-text">Nuevo drop<br>pronto</div>
-                  </div>
+                  <div class="drop-card" data-category="proximamente">
+  <svg width="60" height="60" viewBox="0 0 24 24" fill="none"
+       stroke="white" stroke-width="2">
+    <rect x="3" y="11" width="18" height="11" rx="2"/>
+    <path d="M7 11V7a5 5 0 0110 0v4"/>
+  </svg>
+  <h3>Producto Próximamente</h3>
+</div>
 
-                  <div class="product-card drop card">
-                    <span class="drop-badge">🔥</span>
-                    <p class="drop-text">Nuevo drop<br>pronto</p>
-                  </div>
+
+                   <div class="drop-card" data-category="proximamente">
+  <svg width="60" height="60" viewBox="0 0 24 24" fill="none"
+       stroke="white" stroke-width="2">
+    <rect x="3" y="11" width="18" height="11" rx="2"/>
+    <path d="M7 11V7a5 5 0 0110 0v4"/>
+  </svg>
+  <h3>Producto Próximamente</h3>
+</div>
+
 
 
 
@@ -369,45 +376,56 @@
 
 
 
-        <div class="modal" id="productModal">
-            <div class="modal-content">
-  <img id="modalImg" alt="Producto">
+        <footer class="main-footer">
+  <p class="footer-title">Medios de pago</p>
 
-  <div class="modal-info">
-    <h2 id="modalTitle"></h2>
+  <div class="payments">
+    <span>💳 Todas las tarjetas</span>
+    <span>📱 Mercado Pago</span>
+    <span>🏦 Transferencias</span>
+    <span>💸 Billeteras Virtuales</span>
+  </div>
 
-    <div class="info-row">
-      <span class="label">Precio:</span>
-      <span id="modalPrice"></span>
+  <p class="footer-copy">
+    &copy; 2026 LL Clothestore. Todos los derechos reservados.
+  </p>
+</footer>
+
+<div class="modal" id="productModal">
+  <div class="modal-content">
+    <img id="modalImg" alt="Producto">
+
+    <div class="modal-info">
+      <h2 id="modalTitle"></h2>
+
+      <div class="info-row">
+        <span class="label">Precio:</span>
+        <span id="modalPrice"></span>
+      </div>
+
+      <div class="info-row">
+        <span class="label">Talles:</span>
+        <span id="modalSizes"></span>
+      </div>
+
+      <div class="info-row">
+        <span class="label">Stock:</span>
+        <span id="modalStock"></span>
+      </div>
+
+      <p id="modalDescription" class="description"></p>
+
+      <div class="whatsapp-box">
+        <p class="whatsapp-text">¿Querés realizar tu pedido? Contactanos por WhatsApp</p>
+        <a id="whatsappBtn" class="whatsapp-btn" target="_blank">Enviar mensaje</a>
+      </div>
+
+      <span class="close">×</span>
     </div>
-
-    <div class="info-row">
-      <span class="label">Talles:</span>
-      <span id="modalSizes"></span>
-    </div>
-
-    <div class="info-row">
-      <span class="label">Stock:</span>
-      <span id="modalStock"></span>
-    </div>
-
-    <p id="modalDescription" class="description"></p>
-
-    <div class="whatsapp-box">
-      <p class="whatsapp-text">
-        ¿Querés realizar tu pedido?  
-        Contactanos por WhatsApp
-      </p>
-
-      <a id="whatsappBtn" class="whatsapp-btn" target="_blank">
-        Enviar mensaje
-      </a>
-    </div>
-
-    <span class="close">×</span>
   </div>
 </div>
 
-    <script src="script.js"></script>    
-    </body>
-    </html>
+<script src="script.js"></script>
+
+</body>
+</html>
