@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
 <header class="main-header">
@@ -22,25 +23,57 @@
 
 </header>
 
+
 <div class="category-menu">
+
   <button class="menu-toggle" aria-label="Abrir categorías">
     <span></span>
     <span></span>
     <span></span>
   </button>
 
-  <div class="menu-dropdown">
-    <button class="filter-btn" data-filter="all">Todo</button>
-    <button class="filter-btn" data-filter="remera">Remeras</button>
-    <button class="filter-btn" data-filter="bermuda">Bermudas</button>
-    <button class="filter-btn" data-filter="drop">Próximamente</button>
+  <ul class="menu-dropdown">
+
+    <li>
+      <button class="filter-btn" data-filter="all">Todo</button>
+    </li>
+
+    <!-- REMERAS CON SUBMENÚ -->
+    <li class="menu-item has-submenu">
+
+  <div class="remeras-wrapper">
+  <button class="filter-btn remeras-btn" data-filter="remeras">
+    <span class="label">Remeras</span>
+</button>
+    <button class="submenu-toggle" aria-label="Ver colores">
+      ›
+    </button>
   </div>
+
+  <ul class="submenu">
+    <li><button class="filter-btn color-btn" data-color="red">Rojas</button></li>
+    <li><button class="filter-btn color-btn" data-color="white">Blancas</button></li>
+    <li><button class="filter-btn color-btn" data-color="black">Negras</button></li>
+  </ul>
+
+</li>
+
+    <li>
+      <button class="filter-btn" data-filter="bermudas">Bermudas</button>
+    </li>
+
+    <li>
+      <button class="filter-btn" data-filter="proximamente">Próximamente</button>
+    </li>
+
+  </ul>
 </div>
+
 
 <main class="products">
 
   <!-- PRODUCT CARD -->
-  <div class="product-card" data-category="remeras"
+  <div class="product-card" data-category="remeras" data-color="red"
     data-title="Remera Jordan Flight MVP roja"
     data-price="$17.000"
     data-sizes="S, M, L, XL"
@@ -56,7 +89,7 @@
     </div>
   </div>
 
-  <div class="product-card" data-category="remeras"
+  <div class="product-card" data-category="remeras" data-color="black"
     data-title="Remera Jordan Flight MVP negra"
     data-price="$17.000"
     data-sizes="S, M, L, XL"
@@ -72,7 +105,7 @@
     </div>
   </div>
 
-  <div class="product-card" data-category="remeras"
+  <div class="product-card" data-category="remeras" data-color="black"
     data-title="Remera Air Jordan negra"
     data-price="$17.000"
     data-sizes="S, M, L, XL"
@@ -88,23 +121,7 @@
     </div>
   </div>
 
-  <div class="product-card" data-category="remeras"
-    data-title="Remera Air Jordan Azul Oscuro"
-    data-price="$17.000"
-    data-sizes="S, M, L, XL"
-    data-stock="Disponible"
-    data-description="Remera Air Jordan Azul Oscuro de alta calidad."
-    data-img="imagenes/air jordan azul oscura.jpeg">
-
-    <div class="img-container">
-      <img src="imagenes/air jordan azul oscura.jpeg" alt="Remera">
-      <div class="overlay"><span>Ver detalles</span></div>
-      <h3>Remera Air Jordan Azul Oscuro</h3>
-      <p>$17.000</p>
-    </div>
-  </div>
-
-  <div class="product-card" data-category="remeras"
+  <div class="product-card" data-category="remeras" data-color="red"
     data-title="Remera Air Jordan Roja"
     data-price="$17.000"
     data-sizes="S, M, L, XL"
@@ -120,7 +137,7 @@
     </div>
   </div>
 
-  <div class="product-card" data-category="remeras"
+  <div class="product-card" data-category="remeras" data-color="red"
     data-title="Remera Jordan Jumpman Roja"
     data-price="$17.000"
     data-sizes="S, M, L, XL"
@@ -136,7 +153,7 @@
     </div>
   </div>
 
-  <div class="product-card" data-category="remeras"
+  <div class="product-card" data-category="remeras" data-color="black"
     data-title="Remera Jordan Jumpman Negra"
     data-price="$17.000"
     data-sizes="S, M, L, XL"
@@ -152,7 +169,7 @@
     </div>
   </div>
 
-  <div class="product-card" data-category="remeras"
+  <div class="product-card" data-category="remeras" data-color="black"
     data-title="Remera Jordan Holiday Negra"
     data-price="$17.000"
     data-sizes="S, M, L, XL"
@@ -168,7 +185,7 @@
     </div>
   </div>
 
-  <div class="product-card" data-category="remeras"
+  <div class="product-card" data-category="remeras" data-color="red"
     data-title="Remera Jordan Holiday Roja"
     data-price="$17.000"
     data-sizes="S, M, L, XL"
@@ -184,7 +201,7 @@
     </div>
   </div>
 
-                    <div class="product-card" data-category="remeras"
+                    <div class="product-card" data-category="remeras" data-color="black"
             data-title="Remera Die$el Negra"         
             data-price="$17.000"
             data-sizes="S, M, L, XL"
@@ -202,7 +219,7 @@
                     </div>
                    </div>
 
-                    <div class="product-card" data-category="remeras"
+                    <div class="product-card" data-category="remeras" data-color="red"
             data-title="Remera Die$el Roja"         
             data-price="$17.000"
             data-sizes="S, M, L, XL"
@@ -220,7 +237,7 @@
                     </div>
                    </div>
 
-                    <div class="product-card" data-category="remeras"
+                    <div class="product-card" data-category="remeras" data-color="black"
             data-title="Remera Diesel Denim Division Negra y Roja"         
             data-price="$17.000"    
             data-sizes="S, M, L, XL"
@@ -238,7 +255,7 @@
                     </div>
                    </div>
 
-                    <div class="product-card" data-category="remeras"
+                    <div class="product-card" data-category="remeras" data-color="red"
             data-title="Remera Diesel Denim Division Roja y Blanca"         
             data-price="$17.000"
             data-sizes="S, M, L, XL"
@@ -256,7 +273,7 @@
                     </div>
                    </div>
 
-                    <div class="product-card" data-category="remeras"
+                    <div class="product-card" data-category="remeras" data-color="black"
             data-title="Remera Diesel For Succesful Life Negra"         
             data-price="$17.000"
             data-sizes="S, M, L, XL"
@@ -274,7 +291,7 @@
                     </div>
                    </div>
 
-                     <div class="product-card" data-category="remeras"
+                     <div class="product-card" data-category="remeras" data-color="red"
             data-title="Remera Diesel For Succesful Life Roja"         
             data-price="$17.000"
             data-sizes="S, M, L, XL"
@@ -291,7 +308,232 @@
                         <p>$17.000</p>                  
                    </div>
                  </div> 
-                 
+
+                 <div class="product-card" data-category="remeras" data-color="white"
+    data-title="Remera Calvin Klein blanca"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Calvin Klein blanca de alta calidad."
+    data-img="imagenes/calvin klein blanca.jpeg">
+
+    <div class="img-container">
+      <img src="imagenes/calvin klein blanca.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Calvin Klein blanca</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+
+   <div class="product-card" data-category="remeras" data-color="black"
+    data-title="Remera Calvin Klein Negra"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Calvin Klein negra de alta calidad."
+    data-img="imagenes/calvin klein negra.jpeg">
+
+    <div class="img-container">
+      <img src="imagenes/calvin klein negra.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Calvin Klein negra</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+
+  <div class="product-card" data-category="remeras" data-color="red"
+    data-title="Remera Calvin Klein Roja"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Calvin Klein roja de alta calidad."
+    data-img="imagenes/calvin klein roja.jpeg">
+
+    <div class="img-container">
+      <img src="imagenes/calvin klein roja.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Calvin Klein roja</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+
+  <div class="product-card" data-category="remeras" data-color="black"
+    data-title="Remera Boss Negra"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Hugo Boss negra de alta calidad."
+    data-img="imagenes/boss negra.jpeg">
+
+    <div class="img-container">
+      <img src="imagenes/boss negra.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Hugo Boss negra</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+                
+  <div class="product-card" data-category="remeras" data-color="red"
+    data-title="Remera Boss Roja"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Hugo Boss roja de alta calidad."
+    data-img="imagenes/boss roja.jpeg">
+
+    <div class="img-container">
+      <img src="imagenes/boss roja.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Hugo Boss roja</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+
+<div class="product-card" data-category="remeras" data-color="white"
+    data-title="Remera Boss Blanca"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Hugo Boss blanca de alta calidad."
+    data-img="imagenes/boss blanca.jpeg">
+
+    <div class="img-container">
+      <img src="imagenes/boss blanca.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Hugo Boss blanca</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+
+<div class="product-card" data-category="remeras" data-color="black"
+    data-title="Remera Boss Negra Estampado Azul"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Hugo Boss negra con estampado azul de alta calidad."
+    data-img="imagenes/boss negra azul.jpeg">
+
+    <div class="img-container">
+      <img src="imagenes/boss negra azul.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Hugo Boss Estampado Azul</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+
+  <div class="product-card" data-category="remeras" data-color="black"
+    data-title="Remera Armani Exchange negra"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Armani Exchange negra de alta calidad."
+    data-img="imagenes/ax negra.jpeg">
+
+    <div class="img-container">
+      <img src="imagenes/ax negra.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Armani Exchange negra</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+
+  <div class="product-card" data-category="remeras" data-color="red"
+    data-title="Remera Armani Exchange Roja"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Armani Exchange roja de alta calidad."
+    data-img="imagenes/ax roja.jpeg">
+
+    <div class="img-container">
+      <img src="imagenes/ax roja.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Armani Exchange roja</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+
+  <div class="product-card" data-category="remeras" data-color="white"
+    data-title="Remera Armani Exchange Blanca"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Armani Exchange blanca de alta calidad."
+    data-img="imagenes/ax blanca.jpeg">
+
+    <div class="img-container">
+      <img src="imagenes/ax blanca.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Armani Exchange blanca</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+
+  <div class="product-card" data-category="remeras" data-color="red"
+    data-title="Remera Armani Exchange Roja Estampado Negro"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Armani Exchange roja con estampado negro de alta calidad."
+    data-img="imagenes/ax roja y negro.jpeg">
+
+    <div class="img-container">
+      <img src="imagenes/ax roja y negro.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Armani Exchange Roja Estampado Negro</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+
+  <div class="product-card" data-category="remeras" data-color="white"
+    data-title="Remera Emporio Armani EA7 Core Identity blanca"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Emporio Armani EA7 Core Identity blanca de alta calidad."
+    data-img="imagenes/ea blanca.jpeg">
+
+    <div class="img-container">
+      <img src="imagenes/ea blanca.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Emporio Armani EA7 Core Identity blanca</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+  
+<div class="product-card" data-category="remeras" data-color="black"
+    data-title="Remera Emporio Armani EA7 Core Identity negra"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Emporio Armani EA7 Core Identity negra de alta calidad."
+    data-img="imagenes/ea negra.jpeg">
+
+    <div class="img-container">
+      <img src="imagenes/ea negra.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Emporio Armani EA7 Core Identity negra</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+
+  <div class="product-card" data-category="remeras" data-color="red"
+    data-title="Remera Emporio Armani EA7 Core Identity roja"
+    data-price="$17.000"
+    data-sizes="S, M, L, XL"
+    data-stock="Disponible"
+    data-description="Remera Emporio Armani EA7 Core Identity roja de alta calidad."
+    data-img="imagenes/ea roja.jpeg">
+
+    <div class="img-container">
+      <img src="imagenes/ea roja.jpeg" alt="Remera">
+      <div class="overlay"><span>Ver detalles</span></div>
+      <h3>Remera Emporio Armani EA7 Core Identity roja</h3>
+      <p>$17.000</p>
+    </div>
+  </div>
+
+
                     <div class="product-card" data-category="bermudas"
             data-title="Bermuda Azul Oscuro"         
             data-price="$12.000"
@@ -366,9 +608,23 @@
   <h3>Producto Próximamente</h3>
 </div>
 
+<div class="drop-card" data-category="proximamente">
+  <svg width="60" height="60" viewBox="0 0 24 24" fill="none"
+       stroke="white" stroke-width="2">
+    <rect x="3" y="11" width="18" height="11" rx="2"/>
+    <path d="M7 11V7a5 5 0 0110 0v4"/>
+  </svg>
+  <h3>Producto Próximamente</h3>
+</div>
 
-
-
+<div class="drop-card" data-category="proximamente">
+  <svg width="60" height="60" viewBox="0 0 24 24" fill="none"
+       stroke="white" stroke-width="2">
+    <rect x="3" y="11" width="18" height="11" rx="2"/>
+    <path d="M7 11V7a5 5 0 0110 0v4"/>
+  </svg>
+  <h3>Producto Próximamente</h3>
+</div>
 
 
         </main>
@@ -377,19 +633,82 @@
 
 
         <footer class="main-footer">
+
   <p class="footer-title">Medios de pago</p>
 
-  <div class="payments">
-    <span>💳 Todas las tarjetas</span>
-    <span>📱 Mercado Pago</span>
-    <span>🏦 Transferencias</span>
-    <span>💸 Billeteras Virtuales</span>
+  <!-- ICONOS -->
+  <div class="footer-payments">
+
+  <div class="payment-icon" data-tooltip="Todas las tarjetas">
+    <svg viewBox="0 0 24 24" class="icon card">
+      <rect x="2" y="5" width="20" height="14" rx="2"/>
+      <line x1="2" y1="9" x2="22" y2="9"/>
+      <line x1="6" y1="15" x2="10" y2="15"/>
+    </svg>
+    <span class="tooltip">Todas las tarjetas</span>
   </div>
+
+  <div class="payment-icon" data-tooltip="Mercado Pago">
+    <svg viewBox="0 0 24 24" class="icon phone">
+      <rect x="7" y="2" width="10" height="20" rx="2"/>
+      <circle cx="12" cy="18" r="1"/>
+    </svg>
+    <span class="tooltip">Mercado Pago</span>
+  </div>
+
+  <div class="payment-icon" data-tooltip="Transferencias">
+    <svg viewBox="0 0 24 24" class="icon bank">
+      <polygon points="12 2 2 7 22 7"/>
+      <line x1="4" y1="7" x2="4" y2="20"/>
+      <line x1="12" y1="7" x2="12" y2="20"/>
+      <line x1="20" y1="7" x2="20" y2="20"/>
+      <line x1="2" y1="20" x2="22" y2="20"/>
+    </svg>
+    <span class="tooltip">Transferencias</span>
+  </div>
+
+  <div class="payment-icon" data-tooltip="Todas las billeteras virtuales">
+    <svg viewBox="0 0 24 24" class="icon cash">
+      <rect x="2" y="6" width="20" height="12" rx="2"/>
+      <circle cx="12" cy="12" r="3"/>
+    </svg>
+    <span class="tooltip">Todas las billeteras virtuales</span>
+  </div>
+
+</div>
 
   <p class="footer-copy">
     &copy; 2026 LL Clothestore. Todos los derechos reservados.
   </p>
+
+  <a
+  href="https://instagram.com/ll.clothestore/"
+  target="_blank"
+  rel="noopener"
+  class="payment-icon instagram"
+>
+  <svg viewBox="0 0 24 24" class="icon instagram-icon">
+    <rect x="2" y="2" width="20" height="20" rx="5"/>
+    <circle cx="12" cy="12" r="4"/>
+    <circle cx="17.5" cy="6.5" r="1"/>
+  </svg>
+
+  <span class="tooltip">Seguinos en Instagram</span>
+</a>
+
+</div>
+
 </footer>
+
+<!-- GRADIENTE -->
+<svg width="0" height="0">
+  <defs>
+    <linearGradient id="grad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="24" y2="24">
+      <stop offset="0%" stop-color="#ff3b3b"/>
+      <stop offset="100%" stop-color="#1f6bff"/>
+    </linearGradient>
+  </defs>
+</svg>
 
 <div class="modal" id="productModal">
   <div class="modal-content">

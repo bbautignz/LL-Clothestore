@@ -81,7 +81,7 @@ if (overlay) {
 }
 
 const filterButtons = document.querySelectorAll(".filter-btn");
-const productCards = document.querySelectorAll(".product-card");
+const productCards = document.querySelectorAll(".product-card, .drop-card");
 
 filterButtons.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -99,28 +99,156 @@ filterButtons.forEach(btn => {
     });
   });
 });
-// =======================
-// revisar esto de arriba, no funciona como debería, no se si es por el cambio de clases o algo, pero no filtra bien
-// =======================
-
 
 const menu = document.querySelector(".category-menu");
 const toggle = document.querySelector(".menu-toggle");
 
-// abrir / cerrar menú
 toggle.addEventListener("click", (e) => {
   e.stopPropagation();
-  menu.classList.toggle("open");
+
+  const isOpen = menu.classList.toggle("open");
+  toggle.classList.toggle("active", isOpen); // 👈 CLAVE
+
+  playClickSound(isOpen ? "open" : "close");
 });
 
-// cerrar al tocar afuera
 document.addEventListener("click", () => {
   menu.classList.remove("open");
+  toggle.classList.remove("active");
 });
 
-// cerrar al elegir categoría
-document.querySelectorAll(".filter-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+function playClickSound(type = "open") {
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+
+  osc.type = "sine";
+  osc.frequency.value = type === "open" ? 720 : 420;
+
+  gain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.06, audioCtx.currentTime + 0.01);
+  gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.12);
+
+  osc.start();
+  osc.stop(audioCtx.currentTime + 0.12);
+}
+
+document.querySelectorAll('.social-icon').forEach(icon => {
+  let tapped = false;
+  const instagramURL = "https://www.instagram.com/ll.clothestore/";
+
+  icon.addEventListener('click', e => {
+    // Desktop → navega normal
+    if (window.matchMedia('(hover: hover)').matches) {
+      window.open(instagramURL, '_blank');
+      return;
+    }
+
+    // Mobile
+    if (!tapped) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      icon.classList.add('show-tooltip');
+      tapped = true;
+
+      setTimeout(() => {
+        icon.classList.remove('show-tooltip');
+        tapped = false;
+      }, 1800);
+    } else {
+      // Segundo tap → navegar
+      window.location.href = instagramURL;
+    }
+  });
+});
+
+document.querySelectorAll('.payment-icon').forEach(icon => {
+  let tapped = false;
+
+  icon.addEventListener('click', e => {
+    // Desktop → dejar pasar
+    if (window.matchMedia('(hover: hover)').matches) return;
+
+    // Mobile
+    if (!tapped) {
+      e.preventDefault(); // ⛔ evita que navegue
+      icon.classList.add('show-tooltip');
+      tapped = true;
+
+      setTimeout(() => {
+        icon.classList.remove('show-tooltip');
+        tapped = false;
+      }, 2000);
+    }
+    // Segundo tap → navega solo
+  });
+});
+
+function filterShirtsByColor(color) {
+  document.querySelectorAll(".product-card").forEach(card => {
+    const isShirt = card.dataset.category === "remeras";
+    const sameColor = card.dataset.color === color;
+
+    if (isShirt && sameColor) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+
+document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const filter = btn.dataset.filter;
+
+    document.querySelectorAll(".product-card").forEach(card => {
+      if (filter === "all" || card.dataset.category === filter) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+
     menu.classList.remove("open");
+    toggle.classList.remove("active");
+  });
+});
+
+document.querySelectorAll(".color-btn").forEach(btn => {
+  btn.addEventListener("click", e => {
+    e.stopPropagation();
+
+    filterShirtsByColor(btn.dataset.color);
+
+    menu.classList.remove("open");
+    toggle.classList.remove("active");
+  });
+});
+
+document.querySelectorAll(".submenu-toggle").forEach(btn => {
+  btn.addEventListener("click", e => {
+    e.stopPropagation();
+    btn.closest(".menu-item").classList.toggle("open");
+  });
+});
+
+document.querySelectorAll(".remeras-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".product-card").forEach(card => {
+      card.style.display =
+        card.dataset.category === "remeras" ? "block" : "none";
+    });
+  });
+});
+
+document.querySelectorAll(".color-btn").forEach(btn => {
+  btn.addEventListener("click", e => {
+    e.stopPropagation();
+    filterShirtsByColor(btn.dataset.color);
   });
 });

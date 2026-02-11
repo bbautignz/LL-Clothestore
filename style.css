@@ -29,7 +29,6 @@ header {
    grid-template-columns: 1fr auto 1fr;
    align-items: center;
    gap: 30px;
-   position: sticky;
    top: 0;
    z-index: 1000;
 }
@@ -532,40 +531,77 @@ header {
 
 /* MENU CATEGORÍAS */
 .category-menu {
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  margin: 20px auto 10px;
-  padding: 0 20px;
-  display: flex;
-  justify-content: flex-end;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 2000;
+  
 }
 
 /* BOTÓN HAMBURGUESA */
 .menu-toggle {
+  width: 30px;
+  height: 22px;
   background: none;
   border: none;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 10px;
+  justify-content: space-between;
 }
 
 .menu-toggle span {
-  width: 26px;
+  width: 100%;
   height: 3px;
-  background: white;
-  border-radius: 2px;
-  transition: 0.3s;
+  background: linear-gradient(90deg, var(--rojo), 
+  var(--azul));
+   border-radius: 3px;
+   transform: rotate(0) translate(0, 0);
+   transition: transform 0.35s ease, opacity 0.25s ease;
+}
+
+/* ANIMACION X */
+@keyframes top-bounce {
+  0%   { transform: rotate(0) translate(0, 0); }
+  60%  { transform: rotate(50deg) translate(7px, 7px); }
+  100% { transform: rotate(45deg) translate(6px, 6px); }
+}
+
+@keyframes bottom-bounce {
+  0%   { transform: rotate(0) translate(0, 0); }
+  60%  { transform: rotate(-50deg) translate(7px, -7px); }
+  100% { transform: rotate(-45deg) translate(6px, -6px); }
+}
+
+.menu-toggle.active span:nth-child(1) {
+  animation: top-bounce 0.45s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  animation: bottom-bounce 0.45s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+
+.menu-toggle:not(.active) span:nth-child(1),
+.menu-toggle:not(.active) span:nth-child(3) {
+  transition: transform 0.35s ease;
+}
+
+.menu-toggle:not(.active) span{
+  animation: none;
 }
 
 /* DROPDOWN */
 .menu-dropdown {
   position: absolute;
-  top: 52px;
-  right: 20px;
-  background: #000;
+  top: 42px;
+  left: 0;
+  background: linear-gradient(#000, #000)padding-box,
+            linear-gradient(135deg, var(--rojo), var(--azul)) border-box;
   border: 2px solid transparent;
   border-radius: 14px;
   padding: 12px;
@@ -577,32 +613,405 @@ header {
   pointer-events: none;
   transform: translateY(-10px);
   transition: 0.25s ease;
-
-  background:
-    linear-gradient(#000, #000) padding-box,
-    linear-gradient(135deg, var(--rojo), var(--azul)) border-box;
 }
 
-/* ABIERTO */
-.category-menu.open .menu-dropdown {
+.menu-dropdown .filter-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 
+  background 0.25s ease,
+  transform 0.15s ease,
+  box-shadow 0.25s ease,
+  border 0.25s ease;
+  position: relative;
+  overflow: hidden; 
+}
+
+.menu-dropdown .filter-btn:hover {
+  background: linear-gradient(
+   135deg,
+   rgba(255, 59, 59, 0.25),
+   rgba(31, 107, 255, 0.25)
+  );
+   border-color: transparent;
+  transform: translateY(-1px);
+  box-shadow: 
+    0 0 10px rgba(255, 59, 59, 0.25),
+    0 0 10px rgba(31, 107, 255, 0.25);
+}
+
+.menu-dropdown .filter-btn.active{
+   background: linear-gradient(
+    135deg,
+    rgba(255, 59, 59, 0.35),
+    rgba(31, 107, 255, 0.35)
+   );
+    border-color: transparent;
+   box-shadow: 
+      0 0 14px rgba(255, 59, 59, 0.6),
+      0 0 14px rgba(31, 107, 255, 0.6);
+}
+
+.menu-dropdown .filter-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.15),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.menu-dropdown .filter-btn:hover::after {
+  opacity: 1;
+}
+
+.category-menu.open .menu-dropdown{
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
 }
 
-/* BOTONES */
 .menu-dropdown .filter-btn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 0.95rem;
-  text-align: left;
-  padding: 10px;
-  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+}
+
+.category-menu.open .filter-btn {
+  animation: menuItem 0.35s ease forwards;
+}
+
+.menu-toggle.open .filter-btn:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.menu-toggle.open .filter-btn:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.menu-toggle.open .filter-btn:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.menu-toggle.open .filter-btn:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+@keyframes menuItem {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+   to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+   }
+}
+
+.footer-payments {
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.payment-icon {
+  width: 36px;
+  height: 36px;
   cursor: pointer;
 }
 
-.menu-dropdown .filter-btn:hover,
-.menu-dropdown .filter-btn.active {
-  background: rgba(255,255,255,0.08);
+.icon {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: white;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+
+  transition:
+    stroke 0.4s ease,
+    filter 0.4s ease,
+    transform 0.25s ease;
+}
+
+/* Animación al cargar */
+.payment-icon .icon {
+  animation: draw 1.2s ease forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Hover premium */
+.payment-icon:hover .icon {
+  stroke: url(#grad);
+  filter:
+    drop-shadow(0 0 6px rgba(255,59,59,.5))
+    drop-shadow(0 0 6px rgba(31,107,255,.5));
+  transform: scale(1.15);
+}
+
+.main-footer {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+/* SOCIAL */
+.footer-social {
+  margin-top: 28px;
+}
+
+/* CONTENEDOR */
+.payment-icon {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+
+/* SVG */
+.instagram-icon {
+  stroke: white;
+  stroke-width: 1.6;
+  fill: none;
+
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  animation: draw 1.2s ease forwards;
+
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease,
+    stroke 0.3s ease;
+}
+
+/* HOVER ICONO */
+.payment-icon:hover .instagram-icon {
+  stroke: url(#grad);
+  transform: scale(1.15);
+  filter:
+    drop-shadow(0 0 8px rgba(255,59,59,.6))
+    drop-shadow(0 0 8px rgba(31,107,255,.6));
+}
+
+/* TOOLTIP */
+.tooltip {
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: #000;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#000, #000) padding-box,
+    linear-gradient(135deg, var(--rojo), var(--azul)) border-box;
+
+  transition: 0.25s ease;
+}
+
+/* MOSTRAR TOOLTIP */
+.payment-icon:hover .tooltip,
+.payment-icon.show-tooltip .tooltip,
+.social-icon:hover .tooltip,
+.social-icon.show-tooltip .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.footer-payments{
+   display: flex;
+   gap: 26px;
+   justify-content: center;
+   margin-top: 16px;
+   margin-bottom: 18px;
+}
+
+.footer-copy {
+   margin-top: 6px;
+}
+
+/* ===============================
+   MENÚ Y SUBMENÚ CORREGIDO
+================================ */
+
+/* Lista base */
+.menu-dropdown {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===============================
+   BOTONES PRINCIPALES
+================================ */
+.submenu-toggle,
+.filter-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 12px 16px;
+  text-align: left;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 
+    background 0.25s ease, 
+    transform 0.15s ease, 
+    box-shadow 0.25s ease;
+}
+
+.submenu-toggle:hover,
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(2px);
+}
+
+/* ===============================
+   MENÚ ITEM PADRE
+================================ */
+.menu-item {
+  position: relative;
+}
+
+/* ===============================
+   SUBMENÚ
+================================ */
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  /* ancho adaptativo */
+  min-width: 160px;
+  max-width: 220px;
+  width: max-content;
+
+  background: #111;
+  border-radius: 16px;
+  padding: 10px;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.25s ease;
+  z-index: 50;
+}
+
+/* Submenú abierto */
+.menu-item.open .submenu {
+  opacity: 1;
+  transform: translateY(6px);
+  pointer-events: auto;
+}
+
+/* ===============================
+   ITEMS DEL SUBMENÚ
+================================ */
+.submenu li {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  color: #ccc;
+  cursor: pointer;
+  border-radius: 12px;
+
+  background:
+    linear-gradient(#111, #111) padding-box,
+    linear-gradient(135deg, var(--rojo), var(--azul)) border-box;
+
+  border: 1px solid transparent;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
+}
+
+.submenu li:hover {
+  color: white;
+  transform: translateX(4px);
+  box-shadow: 0 0 10px rgba(255,59,59,0.25);
+}
+
+/* ===============================
+   FLECHA DE SUBMENÚ
+================================ */
+.submenu-toggle .arrow {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+/* Rotación flecha al abrir */
+.menu-item.open .submenu-toggle .arrow {
+  transform: rotate(90deg);
+}
+
+/* ===============================
+   WRAPPER BOTÓN REMERAS
+================================ */
+.remeras-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.remeras-btn {
+  flex: 1;
+  text-align: center;
+}
+
+/* ===============================
+   FLECHA: desktop / mobile
+================================ */
+.submenu-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.3s ease;
+}
+
+/* Desktop: aparece al hover */
+.menu-item:hover .submenu-toggle {
+  opacity: 1;
+}
+
+/* Mobile: siempre visible */
+@media (max-width: 768px) {
+  .submenu-toggle {
+    opacity: 1;
+  }
 }
