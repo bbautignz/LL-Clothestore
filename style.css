@@ -906,33 +906,20 @@ header {
    SUBMENÚ
 ================================ */
 .submenu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-
-  /* ancho adaptativo */
-  min-width: 160px;
-  max-width: 220px;
-  width: max-content;
-
+  max-height: 0;
+  overflow: hidden;
   background: #111;
   border-radius: 16px;
-  padding: 10px;
-
-  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-
-  opacity: 0;
-  transform: translateY(-10px);
-  pointer-events: none;
-  transition: all 0.25s ease;
-  z-index: 50;
+  margin-top: 6px;
+  transition:
+  max-height 0.35s ease,
+  opacity 0.25s ease;
 }
 
 /* Submenú abierto */
 .menu-item.open .submenu {
+  max-height: 300px;
   opacity: 1;
-  transform: translateY(6px);
-  pointer-events: auto;
 }
 
 /* ===============================
@@ -957,6 +944,15 @@ header {
     color 0.25s ease,
     transform 0.2s ease,
     box-shadow 0.25s ease;
+
+  transform: translateY(-5px);
+  opacity: 0;
+  transition: all 0.25s ease;
+}
+
+.menu-item.open .submenu li{
+  transform: translateY(0);
+  opacity: 1; 
 }
 
 .submenu li:hover {
@@ -971,6 +967,7 @@ header {
 .submenu-toggle .arrow {
   font-size: 1.1rem;
   transition: transform 0.3s ease;
+  justify-content: right;
 }
 
 /* Rotación flecha al abrir */
@@ -985,11 +982,12 @@ header {
   position: relative;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .remeras-btn {
   flex: 1;
-  text-align: center;
+  padding-right: 40px;
 }
 
 /* ===============================
@@ -1015,3 +1013,52 @@ header {
     opacity: 1;
   }
 }
+
+/* ===============================
+   ESTADO ACTIVO
+================================ */
+
+.filter-btn.active,
+.color-btn.active {
+  background: linear-gradient(135deg, var(--rojo), var(--azul));
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 59, 59, 0.4);
+  transform: translateX(4px);
+}
+
+.product-card {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.product-card.hidden {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  display: none;
+}
+
+.filter-indicator {
+  margin: -10px 0 30px 0;
+  font-size: 1rem;
+  color: #ccc;
+  margin-top: -30px;
+}
+
+#indicator-text {
+  color: white;
+  font-weight: bold;
+}
+
+.product-card.hidden{
+  display: none;
+}
+
+#indicator-text,
+.filter-indicator{
+  font-weight: bold;
+  background: linear-gradient(135deg, var(--rojo), var(--azul));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+

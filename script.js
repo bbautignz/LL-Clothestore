@@ -191,42 +191,63 @@ document.querySelectorAll('.payment-icon').forEach(icon => {
 
 function filterShirtsByColor(color) {
   document.querySelectorAll(".product-card").forEach(card => {
-    const isShirt = card.dataset.category === "remeras";
-    const sameColor = card.dataset.color === color;
-
-    if (isShirt && sameColor) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
+    if (
+      card.dataset.category === "remeras" &&
+      card.dataset.color === color
+    ) {
+      card.classList.remove("hidden");
+    } else{
+      card.classList.add("hidden")
     }
+    card.classList.remove("hidden");
+    card.classList.add("hidden")
+    
   });
 }
 
-document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
-  btn.addEventListener('click', () => {
+const filterButton = document.querySelectorAll('.filter-btn[data-filter]');
+const colorButtons = document.querySelectorAll('.color-btn');
+const allFilterButtons = document.querySelectorAll('.filter-btn');
+
+function removeActive() {
+  allFilterButtons.forEach(btn => btn.classList.remove("active"));
+}
+
+filterButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
     const filter = btn.dataset.filter;
+
+    removeActive();
+    btn.classList.add("active");
 
     document.querySelectorAll(".product-card").forEach(card => {
       if (filter === "all" || card.dataset.category === filter) {
-        card.style.display = "block";
+        card.classList.remove("hidden");
       } else {
-        card.style.display = "none";
+        card.classList.add("hidden");
       }
     });
 
-    menu.classList.remove("open");
-    toggle.classList.remove("active");
+    updateIndicator(filter);
   });
 });
 
-document.querySelectorAll(".color-btn").forEach(btn => {
+colorButtons.forEach(btn => {
   btn.addEventListener("click", e => {
     e.stopPropagation();
+  
+    const color = btn.dataset.color;
 
-    filterShirtsByColor(btn.dataset.color);
+    removeActive();
+    btn.classList.add("active");
 
-    menu.classList.remove("open");
-    toggle.classList.remove("active");
+    document.querySelectorAll(".product-card").forEach(card => {
+      if (
+  card.dataset.category === "remeras" &&
+  card.dataset.color === color
+)
+
+    updateIndicator("Remeras", btn.textContent);
   });
 });
 
@@ -237,18 +258,13 @@ document.querySelectorAll(".submenu-toggle").forEach(btn => {
   });
 });
 
-document.querySelectorAll(".remeras-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll(".product-card").forEach(card => {
-      card.style.display =
-        card.dataset.category === "remeras" ? "block" : "none";
-    });
-  });
-});
+function updateIndicator(category, color = null) {
+  const indicator = 
+  document.getElementById("indicator-text");
 
-document.querySelectorAll(".color-btn").forEach(btn => {
-  btn.addEventListener("click", e => {
-    e.stopPropagation();
-    filterShirtsByColor(btn.dataset.color);
-  });
-});
+  if (color) {
+    indicator.textContent = " → " + color;
+  } else {
+    indicator.textContent = category;
+  }
+}
